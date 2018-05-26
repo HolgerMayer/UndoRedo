@@ -9,6 +9,14 @@
 import XCTest
 @testable import UndoRedo
 
+import UIKit
+
+
+
+
+
+
+
 class UndoRedoTests: XCTestCase {
     
     override func setUp() {
@@ -21,16 +29,47 @@ class UndoRedoTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testUndoRedoWithAccessorFunctions() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let undoManager = UndoManager()
+        
+        let demo = Item(undoManager:undoManager)
+        demo.setX(2)
+        print(demo.getX())
+        XCTAssertTrue(demo.getX() == 2)
+        XCTAssertTrue(undoManager.canUndo)
+        undoManager.undo()
+        print(demo.getX())
+        XCTAssertTrue(demo.getX() == 1)
+        XCTAssertTrue(undoManager.canRedo)
+        undoManager.redo()
+        XCTAssertTrue(demo.getX() == 2)
+
+        
+        print("Done.")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testUndoRedoWithPropertyAccess() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let undoManager = UndoManager()
+        
+        let demo = Item(undoManager:undoManager)
+        demo.y = 2
+        print(demo.y)
+        XCTAssertTrue(demo.y == 2)
+        XCTAssertTrue(undoManager.canUndo)
+        undoManager.undo()
+        print(demo.y)
+        XCTAssertTrue(demo.y == 1)
+        XCTAssertTrue(undoManager.canRedo)
+        undoManager.redo()
+        XCTAssertTrue(demo.y == 2)
+        
+        print("Done.")
     }
     
 }

@@ -1,24 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UdG-OL-hC6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--UndoDemo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UndoRedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YC8-3y-eUk">
+                                <rect key="frame" x="84" y="300" width="47" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="RXv-cE-FUu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as3-kp-3OU">
+                                <rect key="frame" x="139" y="300" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7V-2V-fpR">
+                                <rect key="frame" x="189" y="308" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ahD-R3-Vaj"/>
+                                    <constraint firstAttribute="width" constant="100" id="i1K-Gi-ZS1"/>
+                                </constraints>
+                                <state key="normal" title="Down"/>
+                                <connections>
+                                    <action selector="downAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfi-Up-LIB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxr-e5-rJo">
+                                <rect key="frame" x="189" y="284" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rdd-ZZ-P8j"/>
+                                    <constraint firstAttribute="width" constant="100" id="fkA-yr-x3r"/>
+                                </constraints>
+                                <state key="normal" title="Up"/>
+                                <connections>
+                                    <action selector="upAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zoJ-c8-09x"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="b7V-2V-fpR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="244" id="9o4-uB-2sK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xxr-e5-rJo" secondAttribute="trailing" constant="86" id="Err-xk-Bwt"/>
+                            <constraint firstItem="xxr-e5-rJo" firstAttribute="leading" secondItem="as3-kp-3OU" secondAttribute="trailing" constant="8" symbolic="YES" id="ITh-sl-oUX"/>
+                            <constraint firstItem="xxr-e5-rJo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="LDo-8B-SAh"/>
+                            <constraint firstItem="as3-kp-3OU" firstAttribute="leading" secondItem="YC8-3y-eUk" secondAttribute="trailing" constant="8" symbolic="YES" id="Yyu-6E-0nM"/>
+                            <constraint firstItem="YC8-3y-eUk" firstAttribute="baseline" secondItem="as3-kp-3OU" secondAttribute="baseline" id="dck-4b-rRe"/>
+                            <constraint firstItem="YC8-3y-eUk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="84" id="huC-Ri-yKu"/>
+                            <constraint firstItem="YC8-3y-eUk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="236" id="wZk-gc-7Oy"/>
+                            <constraint firstItem="b7V-2V-fpR" firstAttribute="leading" secondItem="xxr-e5-rJo" secondAttribute="leading" id="wqh-aq-aA8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="UndoDemo" id="A20-Xa-cTX">
+                        <barButtonItem key="leftBarButtonItem" title="Undo" id="fnd-zh-6IK">
+                            <connections>
+                                <action selector="undoAction:" destination="BYZ-38-t0r" id="cu3-kR-CQI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Redo" id="k3r-Ng-9gj">
+                            <connections>
+                                <action selector="redoAction:" destination="BYZ-38-t0r" id="39p-Fj-8gO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="redoButton" destination="k3r-Ng-9gj" id="967-dX-deo"/>
+                        <outlet property="undoButton" destination="fnd-zh-6IK" id="ejq-g9-phM"/>
+                        <outlet property="valueLabel" destination="as3-kp-3OU" id="FgL-US-6R3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f4c-Ap-QPz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UdG-OL-hC6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Naj-tq-foV">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="49K-7s-KTG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ghr-gZ-PjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46" y="134"/>
         </scene>
     </scenes>
 </document>
